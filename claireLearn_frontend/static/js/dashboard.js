@@ -1,18 +1,34 @@
-const first_set_card = document.getElementById('first_set_card')
-const second_set_card = document.getElementById('second_set_card')
-const next_btn = document.getElementById('next_btn')
-const back_btn = document.getElementById('back_btn')
+const firstSetCard = document.getElementById('first_set_card');
+const secondSetCard = document.getElementById('second_set_card');
+const nextBtn = document.getElementById('next_btn');
+const backBtn = document.getElementById('back_btn');
 
-second_set_card.style.display = 'none'
+// Set initial state
+firstSetCard.classList.add('active');
+secondSetCard.style.display = 'none'
 
-next_btn.addEventListener('click', function(e){
-    e.preventDefault()
-    first_set_card.style.display = 'none'
-    second_set_card.style.display = 'flex'
-})
+nextBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    firstSetCard.classList.remove('active');
+    firstSetCard.classList.add('exit-left'); // Slide out to the left
+    setTimeout(() => {
+        firstSetCard.style.display = 'none';
+        firstSetCard.classList.remove('exit-left');
 
-back_btn.addEventListener('click', function(e){
-    e.preventDefault()
-    second_set_card.style.display = 'none'
-    first_set_card.style.display = 'flex'
-})
+        secondSetCard.style.display = 'flex';
+        secondSetCard.classList.add('active'); // Slide in
+    }, 500); // Match transition duration
+});
+
+backBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    secondSetCard.classList.remove('active');
+    secondSetCard.classList.add('exit-right'); // Slide out to the right
+    setTimeout(() => {
+        secondSetCard.style.display = 'none';
+        secondSetCard.classList.remove('exit-right');
+
+        firstSetCard.style.display = 'flex';
+        firstSetCard.classList.add('active'); // Slide in
+    }, 500); // Match transition duration
+});

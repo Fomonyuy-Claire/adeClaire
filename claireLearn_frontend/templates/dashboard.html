@@ -24,11 +24,16 @@
 
       /* style for moving change in div */
       .card {
+        display: flex;
+        flex-direction: row;
+
+        
         transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
         opacity: 0;
         transform: translateX(100%); /* Start off-screen */
-      }
-      .card.active {
+    }
+    
+    .card.active {
         opacity: 1;
         transform: translateX(0); /* Bring into view */
     }
@@ -40,6 +45,7 @@
     .card.exit-right {
         transform: translateX(100%); /* Move off-screen to the right */
     }
+    
 </style>
 
 <div class="w-full">
@@ -47,13 +53,15 @@
         <!-- header -->
          <div class=" w-full py-4 shadow-md">
             <div class=" flex justify-center">
-                <div class="" style="width: 50%;">
-                    <!-- Current Category -->
-                    <div class="flex justify-start text-xl font-serif font-semibold" style="color: #004949;">
-                        <p>Popular Courses</p>
+                <div class="" style="width: 70%;">
+                    <div class=" flex justify-between">
+                        <div class="flex justify-start text-3xl font-serif font-semibold" style="color: #004949;">
+                            <p>claireLearn</p>
+                        </div>
+                        <a href="/logout" style="background-color: #0E8585;" class="py-1 px-3 rounded-lg text-white font-semibold">Logout</a>
                     </div>
                     <!-- other categories -->
-                    <div class="flex justify-end font-medium" style="color: #178C8C;">
+                    <div class="flex justify-center font-medium" style="color: #178C8C;">
                         <div class="flex gap-3 text-sm">
                             <a href="" class=" hover:underline">Technology</a>
                             <a href="" class=" hover:underline">Engineering</a>
@@ -69,7 +77,7 @@
          </div>
 
          <!-- The Cards of courses -->
-        <div class=" mt-10">
+        <div class=" mt-16">
             <div class=" flex justify-center">
                 <div id="first_set_card" class="flex gap-9 card">
                     <!-- card 1 -->
@@ -99,15 +107,16 @@
                      <!-- card 2 -->
                      <div class=" flex flex-col">
                         <div class=" w-48 h-32">
-                            <img src="../static/image/promt_engineering.png" alt="" class="h-full w-full">
+                            <img src="../static/image/cybersecurity.png" alt="" class="h-full w-full">
                         </div>
                         <div class=" flex flex-col gap-3 shadow-lg pt-2 pb-3 px-2 shadow-gray-400">
                             <div class="flex flex-col gap-1">
-                                <p class="font-semibold" style="color: #178C8C;">Prompt Engineering</p>
-                                <p class=" font-semibold text-black">Duration: 48 hours</p>
-                                <p class="font-semibold"><span class=" text-gray-400 line-through">$10</span><span class="text-red-500 italic ml-2">*free</span></p>
+                                <p class="font-semibold" style="color: #178C8C;">Cyber Security</p>
+                                <p class=" font-semibold text-black">Duration: 42 Weeks</p>
+                                <p class="font-semibold"><span class="text-red-500">$25</span></p>
                                 <!-- stars -->
                                 <div class="flex gap-1">
+                                    <img src="../static/image/Star.png" alt="" class="w-3">
                                     <img src="../static/image/Star.png" alt="" class="w-3">
                                     <img src="../static/image/Star.png" alt="" class="w-3">
                                     <img src="../static/image/Star.png" alt="" class="w-3">
@@ -115,7 +124,7 @@
                                 </div>
                             </div>
                             <div>
-                                <button class="py-1 px-3 border-solid rounded-md font-semibold hover:bg-[#178C8C] hover:text-white hover:shadow-2xl transition-all duration-500" style="border-color: #178C8C; border-width: 1.8px;">Enroll Now</button>
+                                <button class="py-1 px-3 border-solid rounded-md font-semibold hover:bg-[#178C8C] hover:text-white hover:shadow-2xl transition-all duration-500" style="border-color: #178C8C; border-width: 1.8px;">Buy Now</button>
                             </div>
                         </div>
                      </div>
@@ -123,15 +132,16 @@
                      <!-- card 3 -->
                      <div class=" flex flex-col">
                         <div class=" w-48 h-32">
-                            <img src="../static/image/promt_engineering.png" alt="" class="h-full w-full">
+                            <img src="../static/image/devops.png" alt="" class="h-full w-full">
                         </div>
                         <div class=" flex flex-col gap-3 shadow-lg pt-2 pb-3 px-2 shadow-gray-400">
                             <div class="flex flex-col gap-1">
-                                <p class="font-semibold" style="color: #178C8C;">Prompt Engineering</p>
-                                <p class=" font-semibold text-black">Duration: 48 hours</p>
-                                <p class="font-semibold"><span class=" text-gray-400 line-through">$10</span><span class="text-red-500 italic ml-2">*free</span></p>
+                                <p class="font-semibold" style="color: #178C8C;">DevOps</p>
+                                <p class=" font-semibold text-black">Duration: 48 weeks</p>
+                                <p class="font-semibold"><span class="text-red-500">$30</span></p>
                                 <!-- stars -->
                                 <div class="flex gap-1">
+                                    <img src="../static/image/Star.png" alt="" class="w-3">
                                     <img src="../static/image/Star.png" alt="" class="w-3">
                                     <img src="../static/image/Star.png" alt="" class="w-3">
                                     <img src="../static/image/Star.png" alt="" class="w-3">
@@ -139,7 +149,7 @@
                                 </div>
                             </div>
                             <div>
-                                <button class="py-1 px-3 border-solid rounded-md font-semibold hover:bg-[#178C8C] hover:text-white hover:shadow-2xl transition-all duration-500" style="border-color: #178C8C; border-width: 1.8px;">Enroll Now</button>
+                                <button class="py-1 px-3 border-solid rounded-md font-semibold hover:bg-[#178C8C] hover:text-white hover:shadow-2xl transition-all duration-500" style="border-color: #178C8C; border-width: 1.8px;">Buy Now</button>
                             </div>
                         </div>
                      </div>
@@ -147,13 +157,13 @@
                      <!-- card 4 -->
                      <div class=" flex flex-col">
                         <div class=" w-48 h-32">
-                            <img src="../static/image/promt_engineering.png" alt="" class="h-full w-full">
+                            <img src="../static/image/sound_engineering.png" alt="" class="h-full w-full">
                         </div>
                         <div class=" flex flex-col gap-3 shadow-lg pt-2 pb-3 px-2 shadow-gray-400">
                             <div class="flex flex-col gap-1">
-                                <p class="font-semibold" style="color: #178C8C;">Prompt Engineering</p>
-                                <p class=" font-semibold text-black">Duration: 48 hours</p>
-                                <p class="font-semibold"><span class=" text-gray-400 line-through">$10</span><span class="text-red-500 italic ml-2">*free</span></p>
+                                <p class="font-semibold" style="color: #178C8C;">Sound Engineering</p>
+                                <p class=" font-semibold text-black">Duration: 20 weeks</p>
+                                <p class="font-semibold"><span class="text-red-500">$15</span></p>
                                 <!-- stars -->
                                 <div class="flex gap-1">
                                     <img src="../static/image/Star.png" alt="" class="w-3">
@@ -163,7 +173,7 @@
                                 </div>
                             </div>
                             <div>
-                                <button class="py-1 px-3 border-solid rounded-md font-semibold hover:bg-[#178C8C] hover:text-white hover:shadow-2xl transition-all duration-500" style="border-color: #178C8C; border-width: 1.8px;">Enroll Now</button>
+                                <button class="py-1 px-3 border-solid rounded-md font-semibold hover:bg-[#178C8C] hover:text-white hover:shadow-2xl transition-all duration-500" style="border-color: #178C8C; border-width: 1.8px;">Buy Now</button>
                             </div>
                         </div>
                      </div>
@@ -171,13 +181,13 @@
                      <!-- card 5 -->
                      <div class=" flex flex-col">
                         <div class=" w-48 h-32">
-                            <img src="../static/image/promt_engineering.png" alt="" class="h-full w-full">
+                            <img src="../static/image/excel.png" alt="" class="h-full w-full">
                         </div>
                         <div class=" flex flex-col gap-3 shadow-lg pt-2 pb-3 px-2 shadow-gray-400">
                             <div class="flex flex-col gap-1">
-                                <p class="font-semibold" style="color: #178C8C;">Prompt Engineering</p>
-                                <p class=" font-semibold text-black">Duration: 48 hours</p>
-                                <p class="font-semibold"><span class=" text-gray-400 line-through">$10</span><span class="text-red-500 italic ml-2">*free</span></p>
+                                <p class="font-semibold" style="color: #178C8C;">Microsoft Excel</p>
+                                <p class=" font-semibold text-black">Duration: 60 hours</p>
+                                <p class="font-semibold"><span class=" text-gray-400 line-through">$25</span><span class="text-red-500 italic ml-2">*free</span></p>
                                 <!-- stars -->
                                 <div class="flex gap-1">
                                     <img src="../static/image/Star.png" alt="" class="w-3">
@@ -207,15 +217,16 @@
                     <!-- card 1 -->
                      <div class=" flex flex-col">
                         <div class=" w-48 h-32">
-                            <img src="../static/image/promt_engineering.png" alt="" class="h-full w-full">
+                            <img src="../static/image/data_analysis.png" alt="" class="h-full w-full">
                         </div>
                         <div class=" flex flex-col gap-3 shadow-lg pt-2 pb-3 px-2 shadow-gray-400">
                             <div class="flex flex-col gap-1">
-                                <p class="font-semibold" style="color: #178C8C;">Prompt Engineering</p>
-                                <p class=" font-semibold text-black">Duration: 48 hours</p>
-                                <p class="font-semibold"><span class=" text-gray-400 line-through">$10</span><span class="text-red-500 italic ml-2">*free</span></p>
+                                <p class="font-semibold" style="color: #178C8C;">Data Analysis</p>
+                                <p class=" font-semibold text-black">Duration: 45 weeks</p>
+                                <p class="font-semibold"><span class="text-red-500">$60</span></p>
                                 <!-- stars -->
                                 <div class="flex gap-1">
+                                    <img src="../static/image/Star.png" alt="" class="w-3">
                                     <img src="../static/image/Star.png" alt="" class="w-3">
                                     <img src="../static/image/Star.png" alt="" class="w-3">
                                     <img src="../static/image/Star.png" alt="" class="w-3">
@@ -223,7 +234,7 @@
                                 </div>
                             </div>
                             <div>
-                                <button class="py-1 px-3 border-solid rounded-md font-semibold hover:bg-[#178C8C] hover:text-white hover:shadow-2xl transition-all duration-500" style="border-color: #178C8C; border-width: 1.8px;">Enroll Now</button>
+                                <button class="py-1 px-3 border-solid rounded-md font-semibold hover:bg-[#178C8C] hover:text-white hover:shadow-2xl transition-all duration-500" style="border-color: #178C8C; border-width: 1.8px;">Buy Now</button>
                             </div>
                         </div>
                      </div>
@@ -231,12 +242,12 @@
                      <!-- card 2 -->
                      <div class=" flex flex-col">
                         <div class=" w-48 h-32">
-                            <img src="../static/image/promt_engineering.png" alt="" class="h-full w-full">
+                            <img src="../static/image/linear_algera.png" alt="" class="h-full w-full">
                         </div>
                         <div class=" flex flex-col gap-3 shadow-lg pt-2 pb-3 px-2 shadow-gray-400">
                             <div class="flex flex-col gap-1">
-                                <p class="font-semibold" style="color: #178C8C;">Prompt Engineering</p>
-                                <p class=" font-semibold text-black">Duration: 48 hours</p>
+                                <p class="font-semibold" style="color: #178C8C;">Linear Algebra</p>
+                                <p class=" font-semibold text-black">Duration: 8 weeks</p>
                                 <p class="font-semibold"><span class=" text-gray-400 line-through">$10</span><span class="text-red-500 italic ml-2">*free</span></p>
                                 <!-- stars -->
                                 <div class="flex gap-1">
@@ -255,13 +266,13 @@
                      <!-- card 3 -->
                      <div class=" flex flex-col">
                         <div class=" w-48 h-32">
-                            <img src="../static/image/promt_engineering.png" alt="" class="h-full w-full">
+                            <img src="../static/image/africanism.png" alt="" class="h-full w-full">
                         </div>
                         <div class=" flex flex-col gap-3 shadow-lg pt-2 pb-3 px-2 shadow-gray-400">
                             <div class="flex flex-col gap-1">
-                                <p class="font-semibold" style="color: #178C8C;">Prompt Engineering</p>
+                                <p class="font-semibold" style="color: #178C8C;">Africanism</p>
                                 <p class=" font-semibold text-black">Duration: 48 hours</p>
-                                <p class="font-semibold"><span class=" text-gray-400 line-through">$10</span><span class="text-red-500 italic ml-2">*free</span></p>
+                                <p class="font-semibold"><span class="text-red-500 italic ml-2">*free</span></p>
                                 <!-- stars -->
                                 <div class="flex gap-1">
                                     <img src="../static/image/Star.png" alt="" class="w-3">
@@ -279,13 +290,13 @@
                      <!-- card 4 -->
                      <div class=" flex flex-col">
                         <div class=" w-48 h-32">
-                            <img src="../static/image/promt_engineering.png" alt="" class="h-full w-full">
+                            <img src="../static/image/quantum_computing.png" alt="" class="h-full w-full">
                         </div>
                         <div class=" flex flex-col gap-3 shadow-lg pt-2 pb-3 px-2 shadow-gray-400">
                             <div class="flex flex-col gap-1">
-                                <p class="font-semibold" style="color: #178C8C;">Prompt Engineering</p>
-                                <p class=" font-semibold text-black">Duration: 48 hours</p>
-                                <p class="font-semibold"><span class=" text-gray-400 line-through">$10</span><span class="text-red-500 italic ml-2">*free</span></p>
+                                <p class="font-semibold" style="color: #178C8C;">Quantum Computing</p>
+                                <p class=" font-semibold text-black">Duration: 10 weeks</p>
+                                <p class="font-semibold"><span class="text-red-500 italic ml-2">$10</span></p>
                                 <!-- stars -->
                                 <div class="flex gap-1">
                                     <img src="../static/image/Star.png" alt="" class="w-3">
@@ -295,7 +306,7 @@
                                 </div>
                             </div>
                             <div>
-                                <button class="py-1 px-3 border-solid rounded-md font-semibold hover:bg-[#178C8C] hover:text-white hover:shadow-2xl transition-all duration-500" style="border-color: #178C8C; border-width: 1.8px;">Enroll Now</button>
+                                <button class="py-1 px-3 border-solid rounded-md font-semibold hover:bg-[#178C8C] hover:text-white hover:shadow-2xl transition-all duration-500" style="border-color: #178C8C; border-width: 1.8px;">Buy Now</button>
                             </div>
                         </div>
                      </div>
@@ -303,13 +314,13 @@
                      <!-- card 5 -->
                      <div class=" flex flex-col">
                         <div class=" w-48 h-32">
-                            <img src="../static/image/promt_engineering.png" alt="" class="h-full w-full">
+                            <img src="../static/image/international_law.png" alt="" class="h-full w-full">
                         </div>
                         <div class=" flex flex-col gap-3 shadow-lg pt-2 pb-3 px-2 shadow-gray-400">
                             <div class="flex flex-col gap-1">
-                                <p class="font-semibold" style="color: #178C8C;">Prompt Engineering</p>
-                                <p class=" font-semibold text-black">Duration: 48 hours</p>
-                                <p class="font-semibold"><span class=" text-gray-400 line-through">$10</span><span class="text-red-500 italic ml-2">*free</span></p>
+                                <p class="font-semibold" style="color: #178C8C;">International Law</p>
+                                <p class=" font-semibold text-black">Duration: 20 weeks</p>
+                                <p class="font-semibold"><span class="text-red-500">$30</span></p>
                                 <!-- stars -->
                                 <div class="flex gap-1">
                                     <img src="../static/image/Star.png" alt="" class="w-3">
@@ -319,7 +330,7 @@
                                 </div>
                             </div>
                             <div>
-                                <button class="py-1 px-3 border-solid rounded-md font-semibold hover:bg-[#178C8C] hover:text-white hover:shadow-2xl transition-all duration-500" style="border-color: #178C8C; border-width: 1.8px;">Enroll Now</button>
+                                <button class="py-1 px-3 border-solid rounded-md font-semibold hover:bg-[#178C8C] hover:text-white hover:shadow-2xl transition-all duration-500" style="border-color: #178C8C; border-width: 1.8px;">Buy Now</button>
                             </div>
                         </div>
                      </div>
