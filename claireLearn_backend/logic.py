@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, url_for, flash, request, jsonify, session
 from werkzeug.security import generate_password_hash, check_password_hash
-from database import database, user_table, create_user, read_user
+from db import database, user_table, create_user, read_user
 import logging
 from flask_cors import CORS
 

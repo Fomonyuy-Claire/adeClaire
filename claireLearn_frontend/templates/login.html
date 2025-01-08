@@ -1,20 +1,19 @@
 {% extends "landing_page.html" %}
 
 {% block content %}
-<div class=" flex justify-center items-center mt-12 text-white">
-    <div>
+<div class=" flex justify-center items-center mt-1" style="color: #444444;">
+    <div class="px-3 pb-3  shadow-md shadow-gray-400">
         <p class="text-center font-bold text-xl">LOGIN</p>
-        <p class="text-center text-sm mt-2">Please, Enter Your Details to Login </p>
-
-        <form action="" method="POST" class="mt-6" style="width: 18rem;">
+        
+        <form action="" method="POST" class="mt-6" style="width: 18rem;" >
             <p class="ml-3 mb-2">Username</p>
             <input type="text" name="usr_email" class="px-3 w-full rounded-xl py-2 bg-gray-300 text-black">
 
-            <p class="ml-3 mt-5 mb-2">Password</p>
+            <p class="ml-3 mt-2 mb-2">Password</p>
             <input type="password" name="pwd" id="" class="px-3 w-full rounded-xl py-2 bg-gray-300 text-black">
 
             <!-- flash message -->
-             <div class="flex justify-center mt-4">
+             <div class="flex justify-center mt-2">
                 {% with messages = get_flashed_messages(with_categories=true) %}
                     {% if messages %}
                         {% for category, message in messages %}
@@ -24,8 +23,11 @@
                 {% endwith %}
              </div>
 
-            <div class="mt-7">
-                <button type="submit" class="w-full py-2 rounded-xl font-semibold" style="background: linear-gradient(to right, #9181F4, #5038ED);">Login Now</button>
+            <div class="mt-2">
+                <button type="submit" class="w-full py-2 rounded-xl font-semibold text-white" style="background-color: #0E8585;">Login Now</button>
+            </div>
+            <div class="text-center text-sm font-serif mt-1">
+                <p>Don't have an account ? <span class="font-semibold"><a href="/signup">Sign Up !</a></span></p>
             </div>
         </form>
     </div>

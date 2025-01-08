@@ -3,11 +3,40 @@ import requests, logging
 
 app = Flask(__name__)
 API_URL = 'http://127.0.0.1:3000'
-app.secret_key = "fleetflow"
+app.secret_key = "claireLearn"
 
 @app.route('/')
 def landing_page():
     return render_template('landing_page.html')
+
+@app.route('/login', methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        username_email = request.form.get('usr_email')
+        password = request.form.get('pwd')
+
+        login_data = {
+            "username": username_email,
+            "email": username_email,
+            "password": password
+        }
+
+        #request session from the backend
+        session = requests.Session()
+        # use the session to perform the post method
+        login_response = session.post(f"{API_URL}/login", data=login_data)
+
+
+
+        if login_response.status_code == 200:
+            #store the session in the cookies
+            flask_session['cookies'] = session.cookies.get_dict()
+            return redirect(url_for('dashboard'))
+        else:
+            flash("Invalid Login Details")
+            return redirect(url_for('login'))
+        
+    return render_template('login.html')
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
@@ -35,35 +64,6 @@ def signup():
 
     return render_template('signup.html')
 
-@app.route('/login', methods=["GET", "POST"])
-def login():
-    if request.method == "POST":
-        username_email = request.form.get('usr_email')
-        password = request.form.get('pwd')
-
-        login_data = {
-            "username": username_email,
-            "email": username_email,
-            "password": password
-        }
-
-        #request session from the backend
-        session = requests.Session()
-        # use the session to perform the post method
-        login_response = session.post(f"{API_URL}/login", data=login_data)
-
-        # login_response = requests.post(f"{API_URL}/login", data=login_data, headers={'Content-Type': 'application/x-www-form-urlencoded'})
-
-
-        if login_response.status_code == 200:
-            #store the session in the cookies
-            flask_session['cookies'] = session.cookies.get_dict()
-            return redirect(url_for('dashboard'))
-        else:
-            flash("Invalid Login Details")
-            return redirect(url_for('login'))
-        
-    return render_template('login.html')
 
 @app.route('/logout')
 def logout():
