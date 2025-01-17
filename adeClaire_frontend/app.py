@@ -3,7 +3,7 @@ import requests, logging
 
 app = Flask(__name__)
 API_URL = 'http://127.0.0.1:3000'
-app.secret_key = "claireLearn"
+app.secret_key = "adeClaire"
 
 @app.route('/')
 def landing_page():

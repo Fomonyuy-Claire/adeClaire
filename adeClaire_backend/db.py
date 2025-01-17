@@ -5,7 +5,7 @@ import sqlite3, json
 #connect database (if not exists)
 def database():
     try:
-        conn = sqlite3.connect('claireLearn.sqlite')
+        conn = sqlite3.connect('adeClaire.sqlite')
     except Exception as e:
         print('The Database cannot be connected due to: ' + e)
     return (conn)
