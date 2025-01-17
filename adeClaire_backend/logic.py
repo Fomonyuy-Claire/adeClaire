@@ -110,3 +110,48 @@ def dashboard():
             "status": "Success",
             "code": 200
         }), 200
+
+@logic_bp.route('/prompt_engineering')
+def prompt_engineering():
+    if 'user_id' not in session:
+        return jsonify({
+            "message": "You must login before accessing this page",
+            "status": "Unauthorized",
+            "code": "401"
+        }), 401
+    else:
+        return jsonify({
+            "message": "Welcome to prompt engineering",
+            "status": "Success",
+            "code": 200
+        }), 200
+
+@logic_bp.route('/iframe_prompt_engineering')
+def iframe_prompt_engineering():
+    if 'user_id' not in session:
+        return jsonify({
+            "message": "You must login before accessing this page",
+            "status": "Unauthorized",
+            "code": "401"
+        }), 401
+    else:
+        return jsonify({
+            "message": "Welcome to Iframe of prompt engineering",
+            "status": "Success",
+            "code": 200
+        }), 200
+
+@logic_bp.route('/content_prompt_engineering')
+def content_prompt_engineering():
+    if 'user_id' not in session:
+        return jsonify({
+            "message": "You must login before accessing this page",
+            "status": "Unauthorized",
+            "code": "401"
+        }), 401
+    else:
+        return jsonify({
+            "message": "Welcome to content of prompt engineering",
+            "status": "Success",
+            "code": 200
+        }), 200

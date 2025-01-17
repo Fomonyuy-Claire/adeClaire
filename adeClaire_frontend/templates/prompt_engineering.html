@@ -1,0 +1,86 @@
+{% extends "dashboard.html" %}
+
+{% block course_contents %}
+<div>
+    <div>
+        <div class=" flex">
+            <!-- side bar -->
+             <div style="width: 25rem; background-color: #0E8585;" class="min-h-screen">
+                <div>
+                    <img src="../static/image/prompt_engr_banner.png" alt="" class="w-full">
+                </div>
+                
+                <div>
+                    <!-- contents of prompt engineering are listed are as with the <a> tag and styled with tailwind css. The contents is arranged to inspire learners and it also serves as a roadmap for the prompt engineering course -->
+                        <div id="course-contents" class="p-4 text-white">
+                            <h2 class="text-2xl font-bold mb-4">Course Contents</h2>
+                            <ul class="space-y-4">
+                                <!-- Main Topic -->
+                                <li>
+                                    <button class="main-topic w-full text-left font-semibold hover:underline" data-topic="topic1">
+                                         Introduction to Prompt Engineering
+                                    </button>
+                                    <ul class="subtopics hidden pl-4 mt-2 space-y-2" id="topic1">
+                                        <li><a href="https://en.wikipedia.org/wiki/Prompt_engineering" target="prompt_engr_iframe" class="hover:underline">1.1 What is Prompt Engineering?</a></li>
+                                        <li><a href="https://www.youtube.com/embed/O2gNoIpWMVk?si=vV5ZE5-8NRQdCvQ8" target="prompt_engr_iframe" class="hover:underline">1.2 What is a Prompt</a></li>
+                                        <li><a href="#overview-of-llms" class="hover:underline">1.3 Overview of LLMs</a></li>
+                                    </ul>
+                                </li>
+                                
+                                <!-- Main Topic -->
+                                <li>
+                                    <button class="main-topic w-full text-left font-semibold hover:underline" data-topic="topic2">
+                                         Basics of NLP and LLMs
+                                    </button>
+                                    <ul class="subtopics hidden pl-4 mt-2 space-y-2" id="topic2">
+                                        <li><a href="#understanding-nlp" class="hover:underline">2.1 Understanding NLP</a></li>
+                                        <li><a href="#overview-of-transformers" class="hover:underline">2.2 Overview of Transformers</a></li>
+                                        <li><a href="#fine-tuning-vs-prompts" class="hover:underline">2.3 Fine-tuning vs Prompts</a></li>
+                                    </ul>
+                                </li>
+                                
+                                <!-- Main Topic -->
+                                <li>
+                                    <button class="main-topic w-full text-left font-semibold hover:underline" data-topic="topic3">
+                                         Prompt Design Techniques
+                                    </button>
+                                    <ul class="subtopics hidden pl-4 mt-2 space-y-2" id="topic3">
+                                        <li><a href="#instruction-based-prompts" class="hover:underline">3.1 Instruction-based Prompts</a></li>
+                                        <li><a href="#few-shot-learning" class="hover:underline">3.2 Few-shot Learning</a></li>
+                                        <li><a href="#zero-shot-learning" class="hover:underline">3.3 Zero-shot Learning</a></li>
+                                        <li><a href="#common-mistakes" class="hover:underline">3.4 Common Mistakes in Prompt Design</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <script>
+                            // Select all main topic buttons
+                            const mainTopics = document.querySelectorAll('.main-topic');
+
+                            // Add click event listener to each button
+                            mainTopics.forEach(topic => {
+                                topic.addEventListener('click', () => {
+                                    // Get the associated subtopics list
+                                    const subtopics = document.getElementById(topic.dataset.topic);
+
+                                    // Toggle the visibility
+                                    if (subtopics.classList.contains('hidden')) {
+                                        subtopics.classList.remove('hidden');
+                                    } else {
+                                        subtopics.classList.add('hidden');
+                                    }
+                                });
+                            });
+
+                        </script>
+                        
+                </div>
+             </div>
+
+             <!-- The content -->
+             <iframe name="prompt_engr_iframe" src="/iframe_prompt_engineering" frameborder="0" class="w-full"></iframe>
+        </div>
+    </div>
+</div>
+{% endblock %}

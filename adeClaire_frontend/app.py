@@ -91,8 +91,48 @@ def dashboard():
     if dashboard_request.status_code == 200:
         return render_template('dashboard.html')
     else:
-        flash("You must Login in before Accessing this page")
+        flash("You must Login before accessing this page")
         return redirect(url_for('login'))
+
+@app.route('/prompt_engineering')
+def prompt_engineering():
+    cookies = flask_session.get('cookies', {})
+    with requests.Session() as session:
+        session.cookies.update(cookies)
+        prompt_engineering_request = session.get(f"{API_URL}/prompt_engineering")
+    
+    if prompt_engineering_request.status_code == 200:
+        return render_template('prompt_engineering.html')
+    else:
+        flash("You must Login before accessing this page")
+        return redirect(url_for('login'))
+
+@app.route('/iframe_prompt_engineering')
+def iframe_prompt_engineering():
+    cookies = flask_session.get('cookies', {})
+    with requests.Session() as session:
+        session.cookies.update(cookies)
+        prompt_engineering_request = session.get(f"{API_URL}/iframe_prompt_engineering")
+    
+    if prompt_engineering_request.status_code == 200:
+        return render_template('iframe_prompt_engineering.html')
+    else:
+        flash("You must Login before accessing this page")
+        return redirect(url_for('login'))
+
+@app.route('/content_prompt_engineering')
+def content_prompt_engineering():
+    cookies = flask_session.get('cookies', {})
+    with requests.Session() as session:
+        session.cookies.update(cookies)
+        prompt_engineering_request = session.get(f"{API_URL}/content_prompt_engineering")
+    
+    if prompt_engineering_request.status_code == 200:
+        return render_template('content_prompt_engineering.html')
+    else:
+        flash("You must Login before accessing this page")
+        return redirect(url_for('login'))
+
 
 if __name__ == '__main__':
     app.run(port=5000, debug=True)
