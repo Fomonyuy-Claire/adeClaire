@@ -141,8 +141,8 @@ def iframe_prompt_engineering():
             "code": 200
         }), 200
 
-@logic_bp.route('/content_prompt_engineering')
-def content_prompt_engineering():
+@logic_bp.route('/exam_prompt_engineering')
+def exam_prompt_engineering():
     if 'user_id' not in session:
         return jsonify({
             "message": "You must login before accessing this page",

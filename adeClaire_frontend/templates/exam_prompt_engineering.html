@@ -1,0 +1,132 @@
+{% extends "landing_page.html" %}
+
+{% block body %}
+<div class="bg-gray-100">
+    <div class="max-w-3xl mx-auto bg-white p-8 mt-10 rounded shadow">
+        <h1 class="text-3xl font-bold mb-6 text-center">Certification Examination</h1>
+        <form id="exam-form">
+            <!-- Question 1 -->
+            <div class="mb-6">
+                <p class="font-semibold">1. What is Prompt Engineering?</p>
+                <div class="mt-2">
+                    <label>
+                        <input type="radio" name="q1" value="a" class="mr-2"> Designing physical engineering prompts
+                    </label>
+                </div>
+                <div class="mt-2">
+                    <label>
+                        <input type="radio" name="q1" value="b" class="mr-2"> Crafting inputs for AI to generate desired outputs
+                    </label>
+                </div>
+                <div class="mt-2">
+                    <label>
+                        <input type="radio" name="q1" value="c" class="mr-2"> Prompting user surveys for feedback
+                    </label>
+                </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="mb-6">
+                <p class="font-semibold">2. Which of the following is a benefit of Few-shot Learning?</p>
+                <div class="mt-2">
+                    <label>
+                        <input type="radio" name="q2" value="a" class="mr-2"> Reduces model size
+                    </label>
+                </div>
+                <div class="mt-2">
+                    <label>
+                        <input type="radio" name="q2" value="b" class="mr-2"> Requires minimal data for training
+                    </label>
+                </div>
+                <div class="mt-2">
+                    <label>
+                        <input type="radio" name="q2" value="c" class="mr-2"> Increases hardware dependency
+                    </label>
+                </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="mb-6">
+                <p class="font-semibold">3. What is the difference between zero-shot and few-shot learning?</p>
+                <div class="mt-2">
+                    <label>
+                        <input type="radio" name="q3" value="a" class="mr-2"> Zero-shot uses data; few-shot does not
+                    </label>
+                </div>
+                <div class="mt-2">
+                    <label>
+                        <input type="radio" name="q3" value="b" class="mr-2"> Few-shot requires examples; zero-shot does not
+                    </label>
+                </div>
+                <div class="mt-2">
+                    <label>
+                        <input type="radio" name="q3" value="c" class="mr-2"> Both require the same amount of data
+                    </label>
+                </div>
+            </div>
+
+            <button type="submit" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700">
+                Submit Exam
+            </button>
+        </form>
+
+        <!-- Result Section -->
+        <div id="result-section" class="hidden mt-6">
+            <h2 class="text-2xl font-bold mb-4 text-center">Your Results</h2>
+            <p id="score" class="text-lg mb-4"></p>
+            <button id="download-certificate" class="bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700 hidden">
+                Download Certificate
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const form = document.getElementById('exam-form');
+        const resultSection = document.getElementById('result-section');
+        const scoreElement = document.getElementById('score');
+        const certificateButton = document.getElementById('download-certificate');
+    
+        // Correct answers
+        const answers = {
+            q1: 'b',
+            q2: 'b',
+            q3: 'b',
+        };
+    
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+    
+            let score = 0;
+            const formData = new FormData(form);
+    
+            // Calculate score
+            for (const [question, correctAnswer] of Object.entries(answers)) {
+                if (formData.get(question) === correctAnswer) {
+                    score++;
+                }
+            }
+    
+            // Display results
+            const totalQuestions = Object.keys(answers).length;
+            const percentage = Math.round((score / totalQuestions) * 100);
+            scoreElement.textContent = `You scored ${score} out of ${totalQuestions} (${percentage}%).`;
+    
+            // Show certificate download if passed
+            if (percentage >= 70) {
+                certificateButton.classList.remove('hidden');
+            }
+    
+            resultSection.classList.remove('hidden');
+        });
+    
+        // Certificate download logic
+        certificateButton.addEventListener('click', () => {
+            alert('Congratulations! Your certificate will be generated here.');
+            // Add logic to generate and download the certificate (e.g., using a library like jsPDF).
+        });
+    });
+    
+</script>
+{% endblock %}

@@ -120,18 +120,19 @@ def iframe_prompt_engineering():
         flash("You must Login before accessing this page")
         return redirect(url_for('login'))
 
-@app.route('/content_prompt_engineering')
-def content_prompt_engineering():
+@app.route('/exam_prompt_engineering')
+def exam_prompt_engineering():
     cookies = flask_session.get('cookies', {})
     with requests.Session() as session:
         session.cookies.update(cookies)
-        prompt_engineering_request = session.get(f"{API_URL}/content_prompt_engineering")
+        prompt_engineering_request = session.get(f"{API_URL}/exam_prompt_engineering")
     
     if prompt_engineering_request.status_code == 200:
-        return render_template('content_prompt_engineering.html')
+        return render_template('exam_prompt_engineering.html')
     else:
         flash("You must Login before accessing this page")
         return redirect(url_for('login'))
+
 
 
 if __name__ == '__main__':
