@@ -65,6 +65,7 @@ def signup():
     return render_template('signup.html')
 
 
+
 @app.route('/logout')
 def logout():
     cookies = flask_session.get('cookies', {})
