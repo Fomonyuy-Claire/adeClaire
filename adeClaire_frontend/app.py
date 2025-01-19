@@ -97,8 +97,6 @@ def dashboard():
         return redirect(url_for('login'))
     
 
-    
-
 @app.route('/prompt_engineering')
 def prompt_engineering():
     cookies = flask_session.get('cookies', {})
